@@ -14,12 +14,14 @@
             height: 100vh;
             margin: 0;
             background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+            padding: 10px;
+            box-sizing: border-box;
         }
         .container {
             width: 100%;
             max-width: 500px;
             background-color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -42,10 +44,11 @@
         h1, h2 {
             font-family: 'Georgia', serif;
             color: #b22222;
+            font-size: 1.5rem;
         }
         p {
             color: #333;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         /* Form styling */
@@ -58,7 +61,7 @@
             margin: 0 auto;
             border: 1px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 1rem;
             box-sizing: border-box;
             text-align: center;
         }
@@ -68,7 +71,7 @@
             padding: 12px 20px;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 1rem;
             cursor: pointer;
             width: 100%;
         }
@@ -117,7 +120,7 @@
             background-color: #ffe6e6;
             color: #b22222;
             border-radius: 10px;
-            font-size: 18px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
         }
@@ -128,7 +131,7 @@
         /* Bullet point section styling */
         .reasons-title {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #b22222;
             text-align: center;
@@ -145,6 +148,27 @@
             margin-top: 10px;
             font-style: italic;
             text-align: center;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 1.2rem;
+            }
+            p, .reward-box, .reasons-title {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 15px;
+            }
+            input[type="text"], button {
+                font-size: 1.1rem;
+                padding: 14px;
+            }
+            .reward-box {
+                font-size: 1rem;
+                padding: 15px;
+            }
         }
     </style>
 </head>
