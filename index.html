@@ -21,7 +21,7 @@
             width: 100%;
             max-width: 500px;
             background-color: white;
-            padding: 20px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
@@ -45,20 +45,28 @@
             font-family: 'Georgia', serif;
             color: #b22222;
             font-size: 1.5rem;
+            margin-bottom: 20px;
         }
         p {
             color: #333;
             font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         /* Form styling */
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px; /* Increased spacing between form elements */
+        }
+        .form-group label {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
         }
         input[type="text"] {
             width: calc(100% - 20px);
             padding: 12px;
-            margin: 0 auto;
+            margin: 5px 0;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1rem;
@@ -68,12 +76,13 @@
         button {
             background-color: #b22222;
             color: white;
-            padding: 12px 20px;
+            padding: 15px;
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             width: 100%;
+            margin-top: 20px;
         }
         button:hover {
             background-color: #d42d2d;
@@ -115,7 +124,7 @@
 
         /* Reward box styling */
         .reward-box {
-            margin-top: 20px;
+            margin-top: 30px;
             padding: 20px;
             background-color: #ffe6e6;
             color: #b22222;
@@ -140,7 +149,7 @@
             text-align: center;
             margin: 10px auto;
             padding: 0;
-            list-style-type: disc;
+            list-style-type: decimal; /* Change this from 'disc' to 'decimal' */
             display: inline-block;
             text-align: left;
         }
@@ -225,12 +234,12 @@
                     <img id="prizeImage" src="images/monitor.png" alt="Gift" style="max-width: 100%; height: auto;">
                 </div>
                 <p class="reveal-sentence fade-in">Its a AOC 27G4X Monitor!</p>
-                <div class="reasons-title fade-in">😟 Reasons it could not come to the lodge: 😟</div>
-                <ul class="reasons-list fade-in">
+                <div class="reasons-title fade-in">😟 Reasons its at home: 😟</div>
+                <ol class="reasons-list fade-in">
                     <li>It is very large.</li>
                     <li>It is very fragile.</li>
                     <li>It is impractical on holiday.</li>
-                </ul>
+                </ol>
             `;
             // Trigger the flash effect after a delay
             setTimeout(function() {
