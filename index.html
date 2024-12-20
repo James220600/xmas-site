@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Gift Reveal</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #ffecd2, #fcb69f);
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Festive decorations */
+        .container:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            z-index: -1;
+            border-radius: 14px;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            box-shadow: 0 4px 15px rgba(255, 105, 135, 0.4);
+        }
+        h1, h2 {
+            font-family: 'Georgia', serif;
+            color: #b22222;
+        }
+        p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        /* Form styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        button {
+            background-color: #b22222;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #d42d2d;
+        }
+
+        /* Hidden element styling */
+        .hidden {
+            display: none;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes flashEffect {
+            0% {
+                opacity: 0.5;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                opacity: 0.5;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* Reward box styling */
+        .reward-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffe6e6;
+            color: #b22222;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .reward-box:hover {
+            background-color: #ffd1d1;
+        }
+
+        /* Bullet point section styling */
+        .reasons-title {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #b22222;
+            text-align: center;
+        }
+        .reasons-list {
+            text-align: center;
+            margin: 10px auto;
+            padding: 0;
+            list-style-type: disc;
+            display: inline-block;
+            text-align: left;
+        }
+        .reveal-sentence {
+            margin-top: 10px;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="contentContainer">
+        <div id="header">
+            <h2>Merry Christmas <span id="username"></span>!</h2>
+            <p>Answer these questions to prove you are Boh:</p>
+        </div>
+        <form id="quizForm">
+            <div class="form-group">
+                <label for="question1">1. What city did we get engaged in?</label>
+                <input type="text" id="question1" name="question1" required>
+            </div>
+            <div class="form-group">
+                <label for="question2">2. What is my job title?</label>
+                <input type="text" id="question2" name="question2" required>
+            </div>
+            <div class="form-group">
+                <label for="question3">3. What is my favourite type of alcoholic beverage?</label>
+                <input type="text" id="question3" name="question3" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="rewardBox" class="hidden">
+            <p class="success-message hidden" id="successMessage">All questions answered correctly!</p>
+            <div class="reward-box" id="rewardButton">🎁 Press here to reveal your gift! 🎁</div>
+        </div>
+    </div>
+    <script>
+        // Set a festive username
+        document.getElementById('username').textContent = 'Boh';
+
+        // Handle form submission
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Hide the header and form
+            document.getElementById('header').classList.add('hidden');
+            document.getElementById('quizForm').classList.add('hidden');
+
+            // Show the success message and reward box
+            document.getElementById('successMessage').classList.remove('hidden');
+            document.getElementById('rewardBox').classList.remove('hidden');
+        });
+
+        // Handle the "Press to reveal prize" button click
+        document.getElementById('rewardButton').addEventListener('click', function() {
+            // Replace container content with reveal
+            const container = document.getElementById('contentContainer');
+            container.innerHTML = `
+                <h1 class="final-message fade-in">You won a MONITOR!</h1>
+                <div id="imageContainer" class="fade-in">
+                    <img id="prizeImage" src="images/monitor.png" alt="Gift" style="max-width: 100%; height: auto;">
+                </div>
+                <p class="reveal-sentence fade-in">Its a AOC 27G4X Monitor!</p>
+                <div class="reasons-title fade-in">😟 Reasons it could not come to the lodge: 😟</div>
+                <ul class="reasons-list fade-in">
+                    <li>It is very large.</li>
+                    <li>It is very fragile.</li>
+                    <li>It is impractical on holiday.</li>
+                </ul>
+            `;
+            // Trigger the flash effect after a delay
+            setTimeout(function() {
+                document.getElementById('prizeImage').classList.add('flash');
+            }, 1000); // Flash effect after 1 second
+        });
+    </script>
+</body>
+</html>
